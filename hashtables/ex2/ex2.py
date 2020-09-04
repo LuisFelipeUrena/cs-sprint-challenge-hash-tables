@@ -9,6 +9,9 @@ def reconstruct_trip(tickets, length):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    # first find which tickets are the starting tickets and which one is the end ticket
+    for ticket in tickets:
+        if ticket.source == None:
+            
 
     return route
