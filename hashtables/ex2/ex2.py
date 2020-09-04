@@ -9,9 +9,24 @@ def reconstruct_trip(tickets, length):
     """
     YOUR CODE HERE
     """
-    # first find which tickets are the starting tickets and which one is the end ticket
+    cache = {}
+    # append each source as a key and the destination as the value in the cache
     for ticket in tickets:
-        if ticket.source == None:
-            
+        cache[ticket.source] = ticket.destination
+    #create an array to hold the route 
+    route = []
+    # append the starting ticket
+    route.append(cache['NONE'])
+    # loop thru the array
+    for ticket in tickets:
+        # make the next ticket the last ticken in the route
+        next_ = route[-1]
+        # append the destination attached to that source to the route
+        route.append(cache[next_])
+        # if the last element in the route is none, we made it to the end.
+        if route[-1] == "NONE":
+            return route
+        
+
 
     return route
